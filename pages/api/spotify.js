@@ -69,11 +69,9 @@ export default async (_, res) => {
 
 
     const recentlyLikedJSON = await recentlyLikedResponse.json();
-    console.log(recentlyLikedJSON);
 
     const filteredSongs = recentlyLikedJSON.items.map(track => parseSongJSON(track.track))
 
-    console.log(filteredSongs);
     if (nowPlayingResponse.status === 204 || nowPlayingResponse.status > 400) {
         return res.status(200).json({isPlaying: false, recentlyLiked: filteredSongs});
     }
