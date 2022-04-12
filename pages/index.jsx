@@ -10,7 +10,7 @@ export default function Home() {
                 <main className='flex flex-col items-center justify-center min-h-screen space-y-3'>
                     <div className="xl:flex xl:gap-x-12">
                         <div className="xl:block">
-                            <h1 className='text-center xl:pb-5 lg:pt-28'>Now Artur listening to</h1>
+                            <h1 className='text-center xl:pb-5 lg:pt-28'>Now Artur listening to..</h1>
 
                             <a
                                 target='_blank'
