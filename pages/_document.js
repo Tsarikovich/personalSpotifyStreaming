@@ -12,7 +12,7 @@ class MyDocument extends Document {
                 <Head>
                     <script
                         async
-                        src="https://www.googletagmanager.com/gtag/js?id=[Tracking ID]"
+                        src="https://www.googletagmanager.com/gtag/js?id=G-11PW7ZWW0J"
                     />
 
                     <script
@@ -21,7 +21,7 @@ class MyDocument extends Document {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', '[G-11PW7ZWW0J]', { page_path: window.location.pathname });
+              gtag('config', 'G-11PW7ZWW0J', { page_path: window.location.pathname });
             `,
                         }}
                     />
