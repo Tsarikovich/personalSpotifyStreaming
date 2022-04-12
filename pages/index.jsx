@@ -47,9 +47,9 @@ export default function Home() {
                             </a>
                         </div>
                         <div className="xl:block lg:pb-10">
-                            <h1 className='text-center xl:pb-5 xl:pt-5 lg:pt-32 lg:pb-16'>Recently played tracks</h1>
+                            <h1 className='text-center xl:pb-5 xl:pt-5 lg:pt-32 lg:pb-16'>Recently liked tracks</h1>
                             {
-                                data?.recentlyPlayed.map(track => (
+                                data?.recentlyLiked.map(track => (
                                     <div
                                         className="lg:max-w-6xl xl:py-2 lg:py-5 relative flex-1 p-5 space-x-4 transition-shadow border rounded-md hover:shadow-md ">
                                         <a
