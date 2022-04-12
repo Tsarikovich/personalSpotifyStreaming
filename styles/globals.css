@@ -4,7 +4,7 @@
 
 /* Write your own custom base styles here */
 h1 {
-    @apply font-bold xl:text-3xl font-primary text-2xl;
+    @apply font-bold xl:text-3xl font-primary text-4xl;
 }
 
 h2 {

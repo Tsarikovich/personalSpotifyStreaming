@@ -1,16 +1,24 @@
 import useSWR from 'swr';
 import {SiSpotify} from 'react-icons/si';
+import Clock from 'react-live-clock';
 
 export default function Home() {
     const fetcher = (url) => fetch(url).then((r) => r.json());
     const {data} = useSWR('/api/spotify', fetcher);
     return (
         <>
-            <section className='pt-12 xl:pt-4'>
+            <section className='xl:pt-4'>
                 <main className='flex flex-col items-center justify-center space-y-3'>
-                    <div className="xl:flex xl:gap-x-28 pb-12">
+                    <div className="xl:flex xl:gap-x-28 pb-12 ">
                         <div className="xl:block">
-                            <h1 className='text-center pb-4 xl:pt-40'>Now Artur listen to</h1>
+                            <div className="flex flex-col items-center">
+                                <Clock
+                                    format={'h:mm:ssa'}
+                                    style={{fontSize: '3.5em', text: 'center'}}
+                                    ticking={true}
+                                    className = "flex flex-col items-center"
+                                />
+                            </div>
 
                             <a
                                 target='_blank'
@@ -20,12 +28,12 @@ export default function Home() {
                                         ? data.songUrl
                                         : 'https://open.spotify.com/user/31up25c3755bjrop6we62atmyrgm?si=db2cc2e4a3b64f9b'
                                 }
-                                className='xl:pt-5 relative flex items-center p-5 space-x-4 transition-shadow border rounded-md hover:shadow-md'
+                                className='xl:pt-5 relative items-center flex p-5 space-x-4 transition-shadow border rounded-md hover:shadow-md'
                             >
                                 <div className='xl:w-fit xl:h-fit'>
                                     {data?.isPlaying ? (
                                         <img
-                                            className='xl:w-48 xl:h-48 w-32 h-32'
+                                            className='xl:w-48 xl:h-48 w-48 h-48'
                                             src={data?.albumImageUrl}
                                             alt={data?.album}
                                         />
@@ -33,7 +41,7 @@ export default function Home() {
                                         <SiSpotify size={64} color={'#1ED760'}/>
                                     )}
                                 </div>
-                                <div className='flex-1 xl:text-xl'>
+                                <div className='flex-1 xl:text-xl items-center'>
                                     <p className='font-bold component'>
                                         {data?.isPlaying ? data.title : 'Not Listening'}
                                     </p>
@@ -46,7 +54,9 @@ export default function Home() {
                                 </div>
                             </a>
                         </div>
+
                         <div className="block">
+
                             <h2 className='xl:text-center pl-5 xl:pb-3 pt-4 pb-3'>Recently liked tracks</h2>
                             {
                                 data?.recentlyLiked.map(track => (
