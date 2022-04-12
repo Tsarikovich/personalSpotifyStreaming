@@ -8,7 +8,7 @@ export default function Home() {
         <>
             <section className='pt-12 xl:pt-4'>
                 <main className='flex flex-col items-center justify-center space-y-3'>
-                    <div className="xl:flex xl:gap-x-28">
+                    <div className="xl:flex xl:gap-x-28 pb-12">
                         <div className="xl:block">
                             <h1 className='text-center pb-4 xl:pt-40'>Now Artur listen to</h1>
 
@@ -51,7 +51,7 @@ export default function Home() {
                             {
                                 data?.recentlyLiked.map(track => (
                                     <div
-                                        className="xl:py-2 relative flex-1 p-3 xl:p-2 transition-shadow border rounded-md hover:shadow-md ">
+                                        className="xl:py-2 pt-5 relative flex-1 p-3 xl:p-2 transition-shadow border rounded-md hover:shadow-md ">
                                         <a
                                             className="xl:flex xl:gap-2.5 flex items-center"
                                             target='_blank'
