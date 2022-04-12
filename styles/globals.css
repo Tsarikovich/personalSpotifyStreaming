@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+@tailwind base;
+
+/* Write your own custom base styles here */
+h1 {
+    @apply font-bold xl:text-3xl font-primary lg:text-7xl;
+}
+
+body {
+    @apply font-primary;
+}
+
+.layout {
+    /* 750px */
+    max-width: 43.75rem;
+    @apply w-11/12 mx-auto;
+}
+
+/* Start purging... */
+@tailwind components;
+/* Stop purging. */
+
+
+/* Start purging... */
+@tailwind utilities;
+/* Stop purging. */
+
+/* Your own custom utilities */
