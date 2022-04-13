@@ -4,11 +4,15 @@
 
 /* Write your own custom base styles here */
 h1 {
-    @apply font-bold xl:text-3xl font-primary text-4xl;
+    @apply xl:text-xl font-primary text-xl;
 }
 
-h2 {
-    @apply font-bold xl:text-2xl font-primary text-xl;
+.hyperlink {
+    @apply text-blue-600 underline
+}
+
+.hyperlink:visited {
+    @apply text-purple-600
 }
 
 

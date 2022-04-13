@@ -8,7 +8,6 @@ const {
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
 const NOW_PLAYING_ENDPOINT = `https://api.spotify.com/v1/me/player/currently-playing`;
-const RECENTLY_LIKED_ENDPOINT = "\thttps://api.spotify.com/v1/me/tracks?limit=10"
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 const getAccessToken = async () => {
@@ -43,16 +42,6 @@ export function parseSongJSON(song) {
     }
 }
 
-export const getRecentlyLiked = async () => {
-    const {access_token} = await getAccessToken();
-
-    return fetch(RECENTLY_LIKED_ENDPOINT, {
-        headers: {
-            Authorization: `Bearer ${access_token}`,
-        },
-    })
-}
-
 export const getNowPlaying = async () => {
     const {access_token} = await getAccessToken();
 
@@ -65,21 +54,14 @@ export const getNowPlaying = async () => {
 
 export default async (_, res) => {
     const nowPlayingResponse = await getNowPlaying();
-    const recentlyLikedResponse = await getRecentlyLiked();
-
-
-    const recentlyLikedJSON = await recentlyLikedResponse.json();
-
-    const filteredSongs = recentlyLikedJSON.items.map(track => parseSongJSON(track.track))
 
     if (nowPlayingResponse.status === 204 || nowPlayingResponse.status > 400) {
-        return res.status(200).json({isPlaying: false, recentlyLiked: filteredSongs});
+        return res.status(200).json({isPlaying: false});
     }
 
     const nowPlayingSong = await nowPlayingResponse.json();
     let data = parseSongJSON(nowPlayingSong.item);
     data['isPlaying'] = nowPlayingSong.is_playing;
-    data['recentlyLiked'] = filteredSongs;
 
     return res.status(200).json(data);
 };
