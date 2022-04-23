@@ -53,7 +53,7 @@ export default function Home() {
                         </div>
                     </a>
                     <div className="text-base pt-1 text-right pr-5 hyperlink">
-                        <Link href={'/liked'}>My last 10 liked songs</Link>
+                        <Link href={'/liked'}>My last 15 liked songs</Link>
                     </div>
 
                 </main>

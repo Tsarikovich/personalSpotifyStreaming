@@ -8,7 +8,7 @@ const {
 } = process.env;
 
 const basic = Buffer.from(`${client_id}:${client_secret}`).toString('base64');
-const RECENTLY_LIKED_ENDPOINT = "\thttps://api.spotify.com/v1/me/tracks?limit=10"
+const RECENTLY_LIKED_ENDPOINT = "\thttps://api.spotify.com/v1/me/tracks?limit=15"
 const TOKEN_ENDPOINT = `https://accounts.spotify.com/api/token`;
 
 const getAccessToken = async () => {
